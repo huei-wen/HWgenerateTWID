@@ -1,0 +1,94 @@
+<script src="generate.js"></script>
+
+<script>
+    function checkID() {
+        let id = document.getElementById("id").value;
+        var msg = document.getElementById('msg');
+        msg.innerHTML = checkTWID(id) ? 'OK' : 'ID ERROR';
+
+    }
+
+    function generateID() {
+        let area = document.getElementById("area").value;
+        let gender;
+        if (document.getElementById("gender-0").checked) {
+            gender = document.getElementById("gender-0").value;
+        } else if (document.getElementById("gender-1").checked) {
+            gender = document.getElementById("gender-1").value;
+        } else {
+            gender = document.getElementById("gender-2").value;
+        }
+        
+        var msg = document.getElementById('msg');
+        msg.innerHTML = createTWID(area, gender);
+    }
+</script>
+<form>
+
+    <!-- Select Basic -->
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="selectbasic"> Area:</label>
+        <!-- <div class="col-md-4"> -->
+        <select id="area" name="selectbasic" class="form-control">
+            <option value="0">隨機</option>
+            <option value="10">臺北市</option>
+            <option value="11">臺中市</option>
+            <option value="12">基隆市</option>
+            <option value="13">臺南市</option>
+            <option value="14">高雄市</option>
+            <option value="15">新北市</option>
+            <option value="16">宜蘭縣</option>
+            <option value="17">桃園市</option>
+            <option value="18">新竹縣</option>
+            <option value="19">苗栗縣</option>
+            <option value="20">臺中縣</option>
+            <option value="21">南投縣</option>
+            <option value="22">彰化縣</option>
+            <option value="23">雲林縣</option>
+            <option value="24">嘉義縣</option>
+            <option value="25">臺南縣</option>
+            <option value="26">高雄縣</option>
+            <option value="27">屏東縣</option>
+            <option value="28">花蓮縣</option>
+            <option value="29">臺東縣</option>
+            <option value="30">澎湖縣</option>
+            <option value="31">陽明山管理局</option>
+            <option value="32">金門縣</option>
+            <option value="33">連江縣</option>
+            <option value="34">嘉義市</option>
+            <option value="35">新竹市</option>
+        </select>
+        <!-- </div> -->
+    </div>
+    <!-- <div class="form-group">
+        <label class="col-md-4 control-label" for="radios">gender</label>
+        <label class="radio-inline" for="gender-0">
+            <input type="radio" name="gender" id="gender-0" value="0" checked="checked">
+            隨機
+        </label>
+        <label class="radio-inline" for="gender-1">
+            <input type="radio" name="gender" id="gender-1" value="1">
+            Male
+        </label>
+        <label class="radio-inline" for="gender-2">
+            <input type="radio" name="gender" id="gender-2" value="2">
+            Female
+        </label>
+    </div> -->
+    <div>
+        Gender: <input type="radio" name="gender" id="gender-0" value="0" checked="checked">隨機
+        <input type="radio" name="gender" id="gender-1" value="1">Male
+        <input type="radio" name="gender" id="gender-2" value="2">Female
+    </div>
+    <!-- onblur:失焦/onfocus:焦點 -->
+    <!-- ID: <input id="id" type="text" onblur="checkID()" /> -->
+
+    <!-- <div class="form-group">
+        <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary" onclick="printValue()">generate</button>
+        </div>
+    </div> -->
+
+    <input type="button" value="generate" onclick="generateID()">
+    <span id="msg"></span><br>
+</form>
